@@ -1,25 +1,14 @@
 let graphMax = document.getElementById('maxTemp');
 
-
 function executeFunction() {
     graphMax.beginElement();
 }
 
-// // returns array
-// let thePath = document.querySelector('polyline');
+var thePath = document.querySelector('polyline');
 
-// function changeRange() {
-//     let bezierLeft = document.getElementById('bezierLeft');
-//     let bLVal = bezierLeft.value;
-//     console.log(bLVal);
+var nmbrRows = document.getElementById("tempTable").rows.length-1; 
+console.log(nmbrRows);
 
-//     // let bezierRight = document.getElementById('bezierRight');
-//     // let bRVal = bezierRight.value;
-//     // console.log(bRVal);
-//     thePath.setAttribute("d", "M0,320 C" + (bLVal * 2) + "," + bLVal + " " + (bLVal * 2) + "," + bLVal + " 320,320");
-// }
-
-var tempTable = document.getElementById("tempTable").rows.length;
 var year = document.getElementsByClassName("year");
 var jan = document.getElementsByClassName("january");
 var feb = document.getElementsByClassName("february");
@@ -34,31 +23,54 @@ var oct = document.getElementsByClassName("october");
 var nov = document.getElementsByClassName("november");
 var dec = document.getElementsByClassName("december");
 
+var temps = [];
+// make a fresh array with nmbr of rows
+for (let i = 0; i < nmbrRows; i++) {
+   temps[i] = [
+   				year[i].innerText,
+   				jan[i].innerText,
+   				feb[i].innerText,
+   				mar[i].innerText,
+   				apr[i].innerText,
+   				may[i].innerText,
+   				jun[i].innerText,
+   				jul[i].innerText,
+   				aug[i].innerText,
+   				sep[i].innerText,
+   				oct[i].innerText,
+   				nov[i].innerText,
+   				dec[i].innerText
+   				]
+}
+
+var currentYear = 0;
 
 function getTheValues() {
-    console.log(jan[0]);
+
+if(currentYear>=nmbrRows){currentYear=0}
+
+	thePath.setAttribute("points", "0,"
+					+parseInt(temps[currentYear][1])*-1+" 10,"
+					+parseInt(temps[currentYear][2])*-1+" 20,"
+					+parseInt(temps[currentYear][3])*-1+" 30,"
+					+parseInt(temps[currentYear][4])*-1+" 40,"
+					+parseInt(temps[currentYear][5])*-1+" 50,"
+					+parseInt(temps[currentYear][6])*-1+" 60,"
+					+parseInt(temps[currentYear][7])*-1+" 70,"
+					+parseInt(temps[currentYear][8])*-1+" 80,"
+					+parseInt(temps[currentYear][9])*-1+" 90,"
+					+parseInt(temps[currentYear][10])*-1+" 100,"
+					+parseInt(temps[currentYear][11])*-1+" 110,"
+					+parseInt(temps[currentYear][12])*-1);
+					// last number is integer, so no need for quotes
+
+	if(currentYear<nmbrRows){currentYear++}
+
 }
 
 
-let Coordinates = {};
 
-while ()
 
-    for (i = 1; i <= tempTable; i++) {
-        let coordinates = {
-            year: year[i],
-            january: jan[i],
-            february: feb[i],
-            march: mar[i],
-            april: apr[i],
-            may: may[i],
-            june: jun[i],
-            july: jul[i],
-            august: aug[i],
-            september: sep[i],
-            october: oct[i],
-            november: nov[i],
-            december: dec[i]
-        }
-        return coordinates.year[0];
-    }
+
+
+
