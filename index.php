@@ -1,9 +1,5 @@
 <!DOCTYPE html>
 
-<?php
-include "includes/database.php";
-
-?>
 <html lang="en">
 
 <head>
@@ -102,8 +98,7 @@ include "includes/database.php";
 
     </svg>
     </div>
-    <button type="submit" onclick="executeFunction()">next year</button>
-
+        <button onclick="getTheValues()">get the values</button>
     <div class="fluid">
         <div class="container-fluid">
             <div class="row">
@@ -185,8 +180,6 @@ include "includes/database.php";
             </div>        
         </div>
     </div>
-    <button onclick="getTheValues()">get the values</button>
-    <script src="main.js"></script>
-</body>
+ <script src="main.js"></script> </body>
 
 </html>
